@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Students Login</title>
+	<title>MITRC|Teachers Signup</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -59,7 +59,7 @@
 
 		<header id="head" class="secondary">
             <div class="container">
-                    <h1>Edit Profile</h1>
+                    <h1>Teacher Signup</h1>
                 </div>
     </header>
 
@@ -71,10 +71,10 @@
 						<br />
 						<br />
 						<br />
-						<form class="form-light mt-20" action="stu_info_edit_action.php" enctype="multipart/form-data" method="post" role="form">
+						<form class="form-light mt-20" action="tsignup_action.php" enctype="multipart/form-data" method="post" role="form">
 							<div class="form-group">
-								<label>Student Name</label>
-								<input type="text" class="form-control" placeholder="Student Name" name="sname" required>
+								<label>Teacher Name</label>
+								<input type="text" class="form-control" placeholder="Teacher Name" name="tname" required>
 							</div>
 							<div class="form-group">
 								<label>Email</label>

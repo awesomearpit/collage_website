@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Facilities|Sports</title>
+	<title>MITRC|Show Teacher</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-	<!-- Custom styles-->
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen">
+	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
@@ -23,31 +23,31 @@
 				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="index.html">
-					<img src="assets/images/logo.png" alt="Techro HTML5 template"></a>
+					<img src="../assets/images/logo.png" alt="Techro HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right mainNav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="courses.html">Courses</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../about.html">About</a></li>
+					<li><a href="../courses.html">Courses</a></li>
+					<li><a href="../gallery.html">Gallery</a></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Facilities <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="library.html">Library</a></li>
-							<li><a href="language_lab.html">Language Lab</a></li>
-							<li><a href="conveyance.html">Conveyance </a></li>
-							<li><a href="sports.html">Sports</a></li>
-							<li><a href="hostel.html">Hostel(Boys/Girls)</a></li>
-							<li><a href="canteen.html">Canteen</a></li>
+							<li><a href="../library.html">Library</a></li>
+							<li><a href="../language_lab.html">Language Lab</a></li>
+							<li><a href="../conveyance.html">Conveyance </a></li>
+							<li><a href="../sports.html">Sports</a></li>
+							<li><a href="../hostel.html">Hostel(Boys/Girls)</a></li>
+							<li><a href="../canteen.html">Canteen</a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="../contact.html">Contact</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">LogIn <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="admin/teacher_login.php">Teachers</a></li>
-							<li><a href="admin/student_login.php">Students</a></li>
+							<li><a href="teacher_login.php">Teachers</a></li>
+							<li><a href="student_login.php">Students</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -57,54 +57,121 @@
 	</div>
 	<!-- /.navbar -->
 
-	<header id="head" class="secondary">
+
+<?php
+include ('database.php'); 
+session_start();
+
+ if(isset($_SESSION['adminid']))
+ {
+	$sql = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
+	
+	$result = $conn->query($sql);
+?>
+		<header id="head" class="secondary">
             <div class="container">
-                    <h1>Sports</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing eliras scele!</p>
+			<?php
+							if ($result->num_rows > 0) {
+								while($row = $result->fetch_assoc()) {
+							?>
+                   <h1><?php echo $row['branch'];?> Teachers</h1>
+				   <?php 
+								}
+							}
+ }
+else{
+	echo "abc";
+
+	
+}
+							?>
                 </div>
     </header>
 
+
 	<!-- container -->
-	<section class="container">
-
-		<div class="row">
-
-			<!-- Article main content -->
-			<article class="col-md-8 maincontent">
+	<div class="container">
+				<div class="row">
 				<br />
 				<br />
+				<br />
+				<?php 
 				
-				<p>In eleifend diam ipsum, a hendrerit sapien vehicula sed. Donec fermentum dolor in diam accumsan ultrices. Nullam interdum diam ut urna ullamcorper, ut vulputate mi tincidunt. Sed volutpat a nunc ut ultrices. Suspendisse tempor ornare nisi ac rhoncus. Quisque id tellus justo. In in quam sed lorem dignissim egestas. Vivamus est libero, tempus et pretium ac, ultricies ac augue. Quisque placerat vitae nisi eget facilisis. Quisque consectetur neque in ornare accumsan. Praesent at molestie nunc. Proin sollicitudin arcu posuere accumsan pretium. Maecenas tincidunt lorem arcu, vel semper justo congue et.</p>
-
-				<p>Aliquam sollicitudin in nulla ut sagittis. Fusce feugiat, sapien eget rutrum ullamcorper, lectus dui dapibus felis, blandit sagittis libero mi eu velit. Cras venenatis, arcu et ornare pharetra, quam ante accumsan libero, ac condimentum felis velit quis lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse sit amet urna est. Proin vulputate laoreet turpis ut pulvinar. Ut sollicitudin sem dui, vel elementum velit venenatis a. Fusce scelerisque tortor in augue consectetur lacinia. In at mattis mi.</p>
-
-				
-				<p>Odit, laudantium, dolores, natus distinctio labore voluptates in inventore quasi qui nobis quis adipisci fugit id! Aliquam alias ea modi. Porro, odio, sed veniam hic numquam qui ad molestiae sint placeat expedita? Perferendis, enim qui numquam sequi obcaecati molestiae fugiat!</p>
-				<p>Dignissimos, beatae, praesentium illum eos autem perspiciatis? Minus, non, tempore, illo, mollitia exercitationem tempora quas harum odio dolores delectus quidem laudantium adipisci ducimus ullam placeat eaque minima quae iure itaque corporis magni nesciunt eius sed dolor doloremque id quasi nisi.</p>
-			</article>
-			<!-- /Article -->
-
-			<!-- Sidebar -->
-			<aside class="col-md-4 sidebar sidebar-right">
-
-				
-				<div class="row panel">
-					<div class="col-xs-12">
+							include ('database.php');
+							
+							$sql1 = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
+							$result1 = $conn->query($sql1);
+								
+							if ($result1->num_rows > 0) {
+								while($row = $result1->fetch_assoc()) {
+									$sql12 = "SELECT * FROM teacher where branch='".$row['branch']."'";
+									$result12 = $conn->query($sql12);
+					
+									?>
+									<table class="table table-hover">
+									 <thead>
+									  <tr>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Phone</th>
+										<th>DOB</th>
+										<th>Branch</th>
+										<th>Image</th>
+										<th>Status</th>
+										<th>Password</th>
+									  </tr>
+									</thead>
+									<tbody><?php
+									if ($result12->num_rows > 0) 
+									{
+								
+										while($row = $result12->fetch_assoc()) 
+										{
+											
+											?> 
+											
+											<tr>
+											<td><?php echo $row['name']; ?></td>
+											<td><?php echo $row['email']; ?></td>
+											<td><?php echo $row['phone']; ?></td>
+											<td><?php echo $row['dob']; ?></td>
+											<td><?php echo $row['branch']; ?></td>
+											<td><img src="../img/<?php echo $row['image']; ?>" height="100px" width="100px"></td>
+											<td><a onclick="showstatus('<?php echo $row['id'] ?>');"><?php echo $row['status']; ?></a></td>
+											<td><?php echo $row['pass']; ?></td>
+											</tr>
+											<?php
+										}
+									}
+								}
+							}								
+							?>
+							</tbody>
+	
+							<script>
 						
-						<p>
-							<img src="assets/images/4.jpg" alt="">
-						</p>
-						
-					</div>
+							function showstatus(value)
+							{
+								
+								
+								$.ajax({
+								type: "post",
+								url: 'tviewstatus.php',
+								data:{a:value},			
+								success:function(data){
+									alert(data);
+								}
+							});	
+							}
+							</script>
+							</table>
+							
+					<a href="branch_profile.php" class="btn btn-two">Back</a><p><br/></p>
 				</div>
-
-			</aside>
-			<!-- /Sidebar -->
-
-		</div>
-	</section>
+			</div>
 	<!-- /container -->
- <footer id="footer">
+
+	 <footer id="footer">
  
 		<div class="container">
    <div class="row">
@@ -190,7 +257,7 @@
         </div>
       </div>
     </div>
-<div class="col-md-3 col-sm-6"> 
+    <div class="col-md-3 col-sm-6"> 
             	<div class="footerwidget"> 
                          <h4>Contact</h4> 
                         <p>Don’t hesitate to reach out! <br>We will get back to you asap</p>
@@ -221,11 +288,11 @@
 					<div class="col-md-6 panel">
 						<div class="panel-body">
 							<p class="simplenav">
-								<a href="index.html">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="courses.html">Courses</a> |
-								<a href="gallery.html">Gallery</a> |
-								<a href="contact.html">Contact</a>
+								<a href="../index.html">Home</a> | 
+								<a href="../about.html">About</a> |
+								<a href="../courses.html">Courses</a> |
+								<a href="../gallery.html">Gallery</a> |
+								<a href="../contact.html">Contact</a>
 							</p>
 						</div>
 					</div>
@@ -249,5 +316,12 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+
+	<!-- Google Maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script src="assets/js/google-map.js"></script>
+
+
 </body>
 </html>

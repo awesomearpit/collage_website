@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Teachers Login</title>
+	<title>MITRC|Teacher|Mocktest</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -27,146 +27,50 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right mainNav">
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../about.html">About</a></li>
-					<li><a href="../courses.html">Courses</a></li>
-					<li><a href="../gallery.html">Gallery</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="../library.html">Library</a></li>
-							<li><a href="../language_lab.html">Language Lab</a></li>
-							<li><a href="../conveyance.html">Conveyance </a></li>
-							<li><a href="../sports.html">Sports</a></li>
-							<li><a href="../hostel.html">Hostel(Boys/Girls)</a></li>
-							<li><a href="../canteen.html">Canteen</a></li>
-						</ul>
-					</li>
-					<li><a href="../contact.html">Contact</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">LogIn <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="teacher_login.php">Teachers</a></li>
-							<li><a href="student_login.php">Students</a></li>
-						</ul>
-					</li>
+					<li><a href="teacher_profile.php">Profile</a></li>
+					<li><a href="teacher_assignment.php">Assignment</a></li>
+					<li><a href="teacher_notice.php">Notice</a></li>
+					<li><a href="teacher_mocktest.php">Mocktest</a></li>
+					<li><a href="teacher_logout.php">logout</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
 	</div>
 	<!-- /.navbar -->
-
-
-<?php
-include ('database.php'); 
-session_start();
-
- if(isset($_SESSION['adminid']))
- {
-	$sql = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
 	
-	$result = $conn->query($sql);
-?>
 		<header id="head" class="secondary">
             <div class="container">
-			<?php
-							if ($result->num_rows > 0) {
-								while($row = $result->fetch_assoc()) {
-							?>
-                   <h1><?php echo $row['branch'];?></h1>
-				   <?php 
-								}
-							}
- }
-else{
-	echo "abc";
-
 	
-}
-							?>
-                </div>
+                   <h1>Mocktest</h1>
+				   
+
+			</div>
     </header>
+
+
+
+		
 
 
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-				<br />
-				<br />
-				<br />
-				<?php 
-				
-							include ('database.php');
-							print_r($_SESSION['adminid']);
-							die;
-							$sql1 = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
-							$result1 = $conn->query($sql1);
-								
-							if ($result1->num_rows > 0) {
-								while($row = $result1->fetch_assoc()) {
-									$sql12 = "SELECT * FROM student where branch='".$row['branch']."'";
-									$result12 = $conn->query($sql12);
-					
-									?>
-									<table class="table table-hover">
-									 <thead>
-									  <tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Phone</th>
-										<th>DOB</th>
-										<th>Branch</th>
-										<th>Image</th>
-										<th>Status</th>
-									  </tr>
-									</thead>
-									<tbody><?php
-									if ($result12->num_rows > 0) 
-									{
-								
-										while($row = $result12->fetch_assoc()) 
-										{
-											
-											?> 
-											
-											<tr>
-											<td><?php echo $row['name']; ?></td>
-											<td><?php echo $row['email']; ?></td>
-											<td><?php echo $row['phone']; ?></td>
-											<td><?php echo $row['dob']; ?></td>
-											<td><?php echo $row['branch']; ?></td>
-											<td><img src="../img/<?php echo $row['image']; ?>" height="100px" width="100px"></td>
-											<td><a onclick="showstatus('<?php echo $row['id'] ?>');"><?php echo $row['status']; ?></a></td>
-											
-											</tr>
-											<?php
-										}
-									}
-								}
-							}								
-							?>
-							</tbody>
-	
-							<script>
+					<div class="col-md-8">
+						<br />
+						<br />
+						<br />
 						
-							function showstatus(value)
-							{
-								
-								
-								$.ajax({
-								type: "post",
-								url: 'viewstatus.php',
-								data:{a:value},			
-								success:function(data){
-									alert(data);
-								}
-							});	
-							}
-							</script>
-							</table>
-							
-					<a href="logout_branch.php" class="btn btn-two">Logout</a><p><br/></p>
+						
+					</div>
+					<div class="col-md-4">
+						<div class="row">
+							<div class="col-md-6">
+								<h3 class="section-title">Notice</h3>
+				
+							</div> 
+						</div> 						
+					</div>
 				</div>
 			</div>
 	<!-- /container -->
@@ -316,7 +220,6 @@ else{
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
-	<script src="assets/js/jquery-1.11.0.min.js"></script>
 
 	<!-- Google Maps -->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>

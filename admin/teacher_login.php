@@ -71,17 +71,17 @@
 						<br />
 						<br />
 						<br />
-						<form class="form-light mt-20" role="form">
+						<form class="form-light mt-20" action="tea_login_action.php" method="post" role="form">
 							<div class="form-group">
-								<label>Teachers Id</label>
-								<input type="text" class="form-control" placeholder="Teachers Id">
+								<label>Email id or Username</label>
+								<input type="text" class="form-control" placeholder="Email id or Username" name="username">
 							</div>
 							<div class="form-group">
 								<label>Password</label>
-								<input type="password" class="form-control" placeholder="Password">
+								<input type="password" class="form-control" placeholder="Password" name="password">
 							</div>
 							
-							<button type="submit" class="btn btn-two">login</button>
+							<button type="submit" class="btn btn-two" value="submit">login</button>
 							<a href="teacher_signup.php" class="btn btn-two">Signup</a><p><br/></p>
 						</form>
 					</div>

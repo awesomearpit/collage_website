@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Teachers Login</title>
+	<title>MITRC|Students|Profile</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -27,29 +27,11 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right mainNav">
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../about.html">About</a></li>
-					<li><a href="../courses.html">Courses</a></li>
-					<li><a href="../gallery.html">Gallery</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Features <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="../library.html">Library</a></li>
-							<li><a href="../language_lab.html">Language Lab</a></li>
-							<li><a href="../conveyance.html">Conveyance </a></li>
-							<li><a href="../sports.html">Sports</a></li>
-							<li><a href="../hostel.html">Hostel(Boys/Girls)</a></li>
-							<li><a href="../canteen.html">Canteen</a></li>
-						</ul>
-					</li>
-					<li><a href="../contact.html">Contact</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">LogIn <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="teacher_login.php">Teachers</a></li>
-							<li><a href="student_login.php">Students</a></li>
-						</ul>
-					</li>
+					<li><a href="student_profile.php">Profile</a></li>
+					<li><a href="student_assignment.php">Assignment</a></li>
+					<li><a href="student_notice.php">Notice</a></li>
+					<li><a href="student_mocktest.php">Mocktest</a></li>
+					<li><a href="student_logout.php">logout</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

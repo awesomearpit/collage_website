@@ -12,6 +12,11 @@ body {
     color: #6E6E6E;
 }
 /*General*/
+element.style {
+    display: block;
+    margin-bottom: 61px;
+    height: 520px;
+}
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	font-family: 'Oswald', sans-serif;

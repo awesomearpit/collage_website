@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Students Login</title>
+	<title>MITRC|Show Students</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -57,9 +57,34 @@
 	</div>
 	<!-- /.navbar -->
 
+
+<?php
+include ('database.php'); 
+session_start();
+
+ if(isset($_SESSION['adminid']))
+ {
+	$sql = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
+	
+	$result = $conn->query($sql);
+?>
 		<header id="head" class="secondary">
             <div class="container">
-                    <h1>Students LogIn</h1>
+			<?php
+							if ($result->num_rows > 0) {
+								while($row = $result->fetch_assoc()) {
+							?>
+                   <h1><?php echo $row['branch'];?> Students</h1>
+				   <?php 
+								}
+							}
+ }
+else{
+	echo "abc";
+
+	
+}
+							?>
                 </div>
     </header>
 
@@ -67,32 +92,82 @@
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
-						<br />
-						<br />
-						<br />
-						<form class="form-light mt-20" action="stu_login_action.php" method="post" role="form">
-							<div class="form-group">
-								<label>Email id or Username</label>
-								<input type="text" class="form-control" placeholder="Email id or Username">
-							</div>
-							<div class="form-group">
-								<label>Password</label>
-								<input type="password" class="form-control" placeholder="Password">
-							</div>
-							
-							<button type="submit" class="btn btn-two" value="submit">login</button>
-							<a href="student_signup.php" class="btn btn-two">Signup</a><p><br/></p>
-						</form>
-					</div>
-					<div class="col-md-4">
-						<div class="row">
-							<div class="col-md-6">
-								<h3 class="section-title">Notice</h3>
+				<br />
+				<br />
+				<br />
+				<?php 
 				
-							</div> 
-						</div> 						
-					</div>
+							include ('database.php');
+							
+							$sql1 = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
+							$result1 = $conn->query($sql1);
+								
+							if ($result1->num_rows > 0) {
+								while($row = $result1->fetch_assoc()) {
+									$sql12 = "SELECT * FROM student where branch='".$row['branch']."'";
+									$result12 = $conn->query($sql12);
+					
+									?>
+									<table class="table table-hover">
+									 <thead>
+									  <tr>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Phone</th>
+										<th>DOB</th>
+										<th>Branch</th>
+										<th>Image</th>
+										<th>Status</th>
+										<th>Password</th>
+										
+									  </tr>
+									</thead>
+									<tbody><?php
+									if ($result12->num_rows > 0) 
+									{
+								
+										while($row = $result12->fetch_assoc()) 
+										{
+											
+											?> 
+											
+											<tr>
+											<td><?php echo $row['name']; ?></td>
+											<td><?php echo $row['email']; ?></td>
+											<td><?php echo $row['phone']; ?></td>
+											<td><?php echo $row['dob']; ?></td>
+											<td><?php echo $row['branch']; ?></td>
+											<td><img src="../img/<?php echo $row['image']; ?>" height="100px" width="100px"></td>
+											<td><a onclick="showstatus('<?php echo $row['id'] ?>');"><?php echo $row['status']; ?></a></td>
+											<td><?php echo $row['pass']; ?></td>
+											</tr>
+											<?php
+										}
+									}
+								}
+							}								
+							?>
+							</tbody>
+	
+							<script>
+						
+							function showstatus(value)
+							{
+								
+								
+								$.ajax({
+								type: "post",
+								url: 'viewstatus.php',
+								data:{a:value},			
+								success:function(data){
+									alert(data);
+								}
+							});	
+							}
+							</script>
+							</table>
+							
+					<a href="branch_profile.php" class="btn btn-two">Back</a><p><br/></p>
 				</div>
 			</div>
 	<!-- /container -->
@@ -242,6 +317,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
 
 	<!-- Google Maps -->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>

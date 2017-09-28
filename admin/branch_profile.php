@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Teachers Login</title>
+	<title>MITRC|Branch Profile</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -95,76 +95,9 @@ else{
 				<br />
 				<br />
 				<br />
-				<?php 
 				
-							include ('database.php');
-							
-							$sql1 = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
-							$result1 = $conn->query($sql1);
-								
-							if ($result1->num_rows > 0) {
-								while($row = $result1->fetch_assoc()) {
-									$sql12 = "SELECT * FROM student where branch='".$row['branch']."'";
-									$result12 = $conn->query($sql12);
-					
-									?>
-									<table class="table table-hover">
-									 <thead>
-									  <tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Phone</th>
-										<th>DOB</th>
-										<th>Branch</th>
-										<th>Image</th>
-										<th>Status</th>
-									  </tr>
-									</thead>
-									<tbody><?php
-									if ($result12->num_rows > 0) 
-									{
-								
-										while($row = $result12->fetch_assoc()) 
-										{
-											
-											?> 
-											
-											<tr>
-											<td><?php echo $row['name']; ?></td>
-											<td><?php echo $row['email']; ?></td>
-											<td><?php echo $row['phone']; ?></td>
-											<td><?php echo $row['dob']; ?></td>
-											<td><?php echo $row['branch']; ?></td>
-											<td><img src="../img/<?php echo $row['image']; ?>" height="100px" width="100px"></td>
-											<td><a onclick="showstatus('<?php echo $row['id'] ?>');"><?php echo $row['status']; ?></a></td>
-											
-											</tr>
-											<?php
-										}
-									}
-								}
-							}								
-							?>
-							</tbody>
-	
-							<script>
-						
-							function showstatus(value)
-							{
-								
-								
-								$.ajax({
-								type: "post",
-								url: 'viewstatus.php',
-								data:{a:value},			
-								success:function(data){
-									alert(data);
-								}
-							});	
-							}
-							</script>
-							</table>
-							
+					<a href="student_branch.php" class="btn btn-two">Show Students</a><p><br/></p>
+					<a href="teacher_branch.php" class="btn btn-two">Show Teachers</a><p><br/></p>
 					<a href="logout_branch.php" class="btn btn-two">Logout</a><p><br/></p>
 				</div>
 			</div>
