@@ -67,7 +67,7 @@
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8 col-md-offset-2">
 						<br />
 						<br />
 						<br />
@@ -120,14 +120,14 @@
 							
 						</form>
 					</div>
-					<div class="col-md-4">
+					<!---	<div class="col-md-4">
 						<div class="row">
 							<div class="col-md-6">
 								<h3 class="section-title">Notice</h3>
 				
 							</div> 
 						</div> 						
-					</div>
+					</div>--->
 				</div>
 			</div>
 	<!-- /container -->

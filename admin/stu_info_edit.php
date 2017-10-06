@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,27 +63,47 @@
                     <h1>Edit Profile</h1>
                 </div>
     </header>
+<?php
+
+include('database.php');
+
+session_start();
+
+$sql = "SELECT * FROM student where id='".$_SESSION['adminid']."'";
+
+$result = $conn->query($sql);	
+
+if ($result->num_rows > 0) {
+     while($row = $result->fetch_assoc()) 
+	 { ?>
 
 
-	<!-- container -->
 	<div class="container">
+	
+	
+
 				<div class="row">
 					<div class="col-md-8">
 						<br />
 						<br />
 						<br />
+						<?php 
+
+						?>
 						<form class="form-light mt-20" action="stu_info_edit_action.php" enctype="multipart/form-data" method="post" role="form">
+							<input name="id" type="hidden" value="<?php echo $row['id'];?>" >
 							<div class="form-group">
 								<label>Student Name</label>
-								<input type="text" class="form-control" placeholder="Student Name" name="sname" required>
-							</div>
+								<input type="text" class="form-control" value="<?php echo $row['name'];?>" placeholder="Student Name" name="name" required>
+							</div>	
+
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" placeholder="Email" name="email" required>
+								<input type="email" class="form-control" value="<?php echo $row['email'];?>" placeholder="Email" name="email" required>
 							</div>
 							<div class="form-group">
 								<label>Phone No.</label>
-								<input type="text" class="form-control" placeholder="Phone No" name="pno" required>
+								<input type="text" class="form-control" placeholder="Phone No" name="pno" value="<?php echo $row['phone'];?>" required>
 							</div>
 							<div class="form-group">
 							<?php 
@@ -92,7 +113,7 @@
 						?>
 								<label>Branch</label>
 								
-								<select class="form-control" placeholder="branch" name="branch" required>
+								<select class="form-control" placeholder="branch" value="<?php echo $row['branch'];?>" name="branch" required>
 								
 								<?php
 							if ($result->num_rows > 0) {?><option>branch</option>
@@ -109,7 +130,7 @@
 							</div>
 							<div class="form-group">
 								<label>Date Of Birth</label>
-								<input type="date" class="form-control" placeholder="Date of Birth" name="dob" required>
+								<input type="date" class="form-control" value="<?php echo $row['dob'];?>" placeholder="Date of Birth" name="dob" required>
 							</div>
 							<div class="form-group">
 								<label>Select Profile Image</label>
@@ -119,6 +140,11 @@
 							<button type="submit" class="btn btn-two" value="submit">update</button><p><br /></p>
 							
 						</form>
+						
+<?php 	}
+
+}
+ ?>
 					</div>
 					<div class="col-md-4">
 						<div class="row">

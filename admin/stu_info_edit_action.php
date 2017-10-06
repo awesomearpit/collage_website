@@ -1,4 +1,13 @@
 <?php
+
+$id=$_POST['id'];
+$name=$_POST['name'];
+$email=$_POST['email'];
+$pno=$_POST['pno'];
+$branch=$_POST['branch'];
+$dob=$_POST['dob'];
+
+
 include('database.php');
 
 session_start();
@@ -9,21 +18,17 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
-		     	
-			 $id=$row['id'];
+	
+
+			 // $id=$row['id'];
 			 
 			 
-			 $name=$row['name'];
-			 $email=$row['email'];
-			 $pno=$row['phone'];
-			 $branch=$row['branch'];
-			 $dob=$row['dob'];
-              
-             // echo $name; 			  
-             // echo $email; 			  
-             // echo $pno; 			  
-             // echo $branch;			 
-             // echo $dob;
+			 // $name=$row['name'];
+			 // $email=$row['email'];
+			 // $pno=$row['phone'];
+			 // $branch=$row['branch'];
+			 // $dob=$row['dob'];
+
 		 
 			 // $sql = "UPDATE student SET uname='$uname',pass='$pass' WHERE id=".$id;
 			$sql = "UPDATE student SET name='$name',email='$email',phone='$pno',branch='$branch',dob='$dob' WHERE id=".$id;
@@ -38,7 +43,8 @@ if ($result->num_rows > 0) {
 
 		 }
 
-echo "success...";
+//echo "success...";
+header('Location:student_profile.php');
  }
 else{
 	echo '0';

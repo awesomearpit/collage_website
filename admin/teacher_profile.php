@@ -76,7 +76,7 @@ else{
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
+					<div  class="col-md-8 col-md-offset-2" style="margin-left: 39%;">
 						<br />
 						<br />
 						<br />
@@ -91,18 +91,7 @@ else{
 							
 									
 									?>
-									<table class="table table-hover">
-									 <thead>
-									  <tr>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Phone</th>
-										<th>DOB</th>
-										<th>Branch</th>
-										<th>Image</th>
-									  </tr>
-									</thead>
-									<tbody><?php
+									<?php
 									if ($result1->num_rows > 0) 
 									{
 								
@@ -111,33 +100,28 @@ else{
 											
 											?> 
 											
-											<tr>
-											<td><?php echo $row['name']; ?></td>
-											<td><?php echo $row['email']; ?></td>
-											<td><?php echo $row['phone']; ?></td>
-											<td><?php echo $row['dob']; ?></td>
-											<td><?php echo $row['branch']; ?></td>
-											<td><img src="../img/<?php echo $row['image']; ?>" height="100px" width="100px"></td>
-									
-											
-											</tr>
+											<p><img src="../img/<?php echo $row['image']; ?>" height="200px" width="200px"></p>
+											<p><b>Name:</b> <?php echo $row['name']; ?></p>
+											<p><b>Email:</b> <?php echo $row['email']; ?></p>
+											<p><b>Mobile No.:</b> <?php echo $row['phone']; ?></p>
+											<p><b>DOB:</b> <?php echo $row['dob']; ?></p>
+											<p><b>Branch:</b> <?php echo $row['branch']; ?></p>
 											<?php
 										}
 									}								
 							?>
-							</tbody>
-							</table>
+							
 					<a href="#" class="btn btn-two">Edit</a>
 					<a href="teacher_logout.php" class="btn btn-two">Logout</a><p><br/></p>	
 					</div>
-					<div class="col-md-4">
+					<!--<div class="col-md-4">
 						<div class="row">
 							<div class="col-md-6">
 								<h3 class="section-title">Notice</h3>
 				
 							</div> 
 						</div> 						
-					</div>
+					</div>-->
 				</div>
 			</div>
 	<!-- /container -->
