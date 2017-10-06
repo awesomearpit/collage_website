@@ -62,10 +62,14 @@
 						<br />
 						
 						
-						<form class="form-light mt-20" action="#" enctype="multipart/form-data" method="post" role="form">
+						<form class="form-light mt-20" action="tea_assignment_action.php" enctype="multipart/form-data" method="post" role="form">
 							<div class="form-group">
 								<label>Assignment Name</label>
 								<input type="text" class="form-control" placeholder="Assignment Name" name="aname" required>
+							</div>
+							<div class="form-group">
+								<label>Subject Name </label>
+								<input type="text" class="form-control" placeholder="Subject Name" name="sname" required>
 							</div>
 							<div class="form-group">
 								<label>Teachers Name </label>

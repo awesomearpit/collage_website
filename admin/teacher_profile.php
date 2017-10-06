@@ -111,7 +111,7 @@ else{
 									}								
 							?>
 							
-					<a href="#" class="btn btn-two">Edit</a>
+					<a href="tea_info_edit.php" class="btn btn-two">Edit</a>
 					<a href="teacher_logout.php" class="btn btn-two">Logout</a><p><br/></p>	
 					</div>
 					<!--<div class="col-md-4">

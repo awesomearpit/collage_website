@@ -2,6 +2,6 @@
 session_start();
 include('database.php');
 unset($_SESSION['adminid']);
-header('Location:student_login.php');
+header('Location:teacher_login.php');
 
 ?>

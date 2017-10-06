@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
 	<meta name="author" content="webThemez.com">
-	<title>MITRC|Teacher|Mocktest</title>
+	<title>MITRC|Teachers|Assignment</title>
 	<link rel="favicon" href="assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
 		<header id="head" class="secondary">
             <div class="container">
 	
-                   <h1>Mocktest</h1>
+                   <h1>Assignment</h1>
 				   
 
 			</div>
@@ -56,23 +56,70 @@
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8 col-md-offset-2">
 						<br />
 						<br />
 						<br />
+						
+						
+						<form class="form-light mt-20" action="tea_assignment_action.php" enctype="multipart/form-data" method="post" role="form">
+							<div class="form-group">
+								<label>Assignment Name</label>
+								<input type="text" class="form-control" placeholder="Assignment Name" name="aname" required>
+							</div>
+							<div class="form-group">
+								<label>Subject Name </label>
+								<input type="text" class="form-control" placeholder="Subject Name" name="sname" required>
+							</div>
+							<div class="form-group">
+								<label>Teachers Name </label>
+								<input type="text" class="form-control" placeholder="Teachers Name" name="tname" required>
+							</div>
+							<div class="form-group">
+							<?php 
+							include ('database.php');
+							$sql = "SELECT * FROM branch";
+							$result = $conn->query($sql);
+						?>
+								<label>Branch</label>
+								
+								<select class="form-control" placeholder="branch" name="branch" required>
+								
+								<?php
+							if ($result->num_rows > 0) {?><option>branch</option>
+								<?php while($row = $result->fetch_assoc()) {
+							?>
+									
+									<option><?php echo $row['branch']; ?></option>
+									<?php 
+								}
+							}
+							?>
+								</select>
+								
+							</div>
+							<div class="form-group">
+								<label>Select Assignment file</label>
+								<input type="file" class="form-control" value="Browse" name="img" id="filetoupload" >
+							</div>
+
+							<button type="submit" class="btn btn-two" value="submit">Upload</button><p><br /></p>
+							
+						</form>
 						
 						
 					</div>
-					<div class="col-md-4">
+				<!--	<div class="col-md-4">
 						<div class="row">
 							<div class="col-md-6">
 								<h3 class="section-title">Notice</h3>
 				
 							</div> 
 						</div> 						
-					</div>
+					</div>-->
 				</div>
 			</div>
+
 	<!-- /container -->
 
 	 <footer id="footer">
