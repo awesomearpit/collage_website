@@ -31,6 +31,7 @@
 					<li><a href="student_assignment.php">Assignment</a></li>
 					<li><a href="student_notice.php">Notice</a></li>
 					<li><a href="student_mocktest.php">Mocktest</a></li>
+					<li><a href="student_idacard.php">ID Card</a></li>
 					<li><a href="student_logout.php">logout</a></li>
 				</ul>
 			</div>
@@ -39,38 +40,90 @@
 	</div>
 	<!-- /.navbar -->
 	
+		<?php
+include ('database.php'); 
+session_start();
+
+ if(isset($_SESSION['adminid']))
+ {
+	$sql = "SELECT * FROM student where id='".$_SESSION['adminid']."'";
+	
+	$result = $conn->query($sql);
+?>
 		<header id="head" class="secondary">
             <div class="container">
-	
+			<?php
+							if ($result->num_rows > 0) {
+								while($row = $result->fetch_assoc()) {
+							?>
                    <h1>Mocktest</h1>
-				   
+				   <?php 
+								}
+							}
+ }
+else{
+	echo "abc";
 
-			</div>
+	
+}
+							?>
+                </div>
     </header>
-
-
-
-		
 
 
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
-						<br />
-						<br />
-						<br />
-						
-						
-					</div>
-					<div class="col-md-4">
-						<div class="row">
-							<div class="col-md-6">
-								<h3 class="section-title">Notice</h3>
+				<br />
+				<br />
+				<br />
+				<?php 
 				
-							</div> 
-						</div> 						
-					</div>
+							include ('database.php');
+							
+							$sql1 = "SELECT * FROM  student where id='".$_SESSION['adminid']."'";
+							$result1 = $conn->query($sql1);
+								
+							if ($result1->num_rows > 0) {
+								while($row = $result1->fetch_assoc()) {
+									$sql12 = "SELECT * FROM mocktest where branch='".$row['branch']."'";
+									$result12 = $conn->query($sql12);
+					
+									?>
+									<table class="table table-hover">
+									 <thead>
+									  <tr>
+										<th>Assignment Name</th>
+										<th>Subject Name</th>
+										<th>Teacher Name</th>
+										<th>Branch</th>
+										<th>Download</th>
+									  </tr>
+									</thead>
+									<tbody><?php
+									if ($result12->num_rows > 0) 
+									{
+								
+										while($row = $result12->fetch_assoc()) 
+										{
+											
+											?> 
+											
+											<tr>
+											<td><?php echo $row['m_name']; ?></td>
+											<td><?php echo $row['sub_name']; ?></td>
+											<td><?php echo $row['tea_name']; ?></td>
+											<td><?php echo $row['branch']; ?></td>
+											<td><a download target="_blank" href="http://localhost/mitrc/files/<?php echo $row['file'];  ?>">Download Mocktest</a></td>
+											</tr>
+											<?php
+										}
+									}
+								}
+							}								
+							?>
+							</tbody>
+							</table>
 				</div>
 			</div>
 	<!-- /container -->

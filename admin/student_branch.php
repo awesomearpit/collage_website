@@ -66,6 +66,7 @@ session_start();
  {
 	$sql = "SELECT * FROM branch where id='".$_SESSION['adminid']."'";
 	
+	
 	$result = $conn->query($sql);
 ?>
 		<header id="head" class="secondary">
@@ -80,7 +81,7 @@ session_start();
 							}
  }
 else{
-	echo "abc";
+	//echo "abc";
 
 	
 }

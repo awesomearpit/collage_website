@@ -31,6 +31,7 @@
 					<li><a href="teacher_assignment.php">Assignment</a></li>
 					<li><a href="teacher_notice.php">Notice</a></li>
 					<li><a href="teacher_mocktest.php">Mocktest</a></li>
+					<li><a href="teacher_idcard.php">ID Card</a></li>
 					<li><a href="teacher_logout.php">logout</a></li>
 				</ul>
 			</div>
@@ -56,20 +57,21 @@
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8 col-md-offset-2">
 						<br />
 						<br />
 						<br />
+						<form class="form-light mt-20" action="tea_notice_action.php"  method="post" role="form">
+							<div class="form-group">
+								<label>Notice</label>
+								<input type="text" class="form-control" placeholder="Notice" name="notice" required>
+							</div>
+							<button type="submit" class="btn btn-two" value="submit">Add Notice</button>
+							<a href="tea_view_notice.php" class="btn btn-two">Show Notice</a>
+							<p><br /></p>
+							
+						</form>
 						
-						
-					</div>
-					<div class="col-md-4">
-						<div class="row">
-							<div class="col-md-6">
-								<h3 class="section-title">Notice</h3>
-				
-							</div> 
-						</div> 						
 					</div>
 				</div>
 			</div>

@@ -80,7 +80,7 @@ session_start();
 							}
  }
 else{
-	echo "abc";
+	//echo "abc";
 
 	
 }

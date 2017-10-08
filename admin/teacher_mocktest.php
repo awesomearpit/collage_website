@@ -31,6 +31,7 @@
 					<li><a href="teacher_assignment.php">Assignment</a></li>
 					<li><a href="teacher_notice.php">Notice</a></li>
 					<li><a href="teacher_mocktest.php">Mocktest</a></li>
+					<li><a href="teacher_idcard.php">ID Card</a></li>
 					<li><a href="teacher_logout.php">logout</a></li>
 				</ul>
 			</div>
@@ -42,7 +43,7 @@
 		<header id="head" class="secondary">
             <div class="container">
 	
-                   <h1>Assignment</h1>
+                   <h1>Mocktest</h1>
 				   
 
 			</div>
@@ -62,10 +63,10 @@
 						<br />
 						
 						
-						<form class="form-light mt-20" action="tea_assignment_action.php" enctype="multipart/form-data" method="post" role="form">
+						<form class="form-light mt-20" action="tea_mocktest_action.php" enctype="multipart/form-data" method="post" role="form">
 							<div class="form-group">
-								<label>Assignment Name</label>
-								<input type="text" class="form-control" placeholder="Assignment Name" name="aname" required>
+								<label>Mocktest Name</label>
+								<input type="text" class="form-control" placeholder="Mocktest Name" name="mname" required>
 							</div>
 							<div class="form-group">
 								<label>Subject Name </label>
@@ -103,7 +104,9 @@
 								<input type="file" class="form-control" value="Browse" name="img" id="filetoupload" >
 							</div>
 
-							<button type="submit" class="btn btn-two" value="submit">Upload</button><p><br /></p>
+							<button type="submit" class="btn btn-two" value="submit">Upload</button>
+							<a href="tea_view_mocktest.php" class="btn btn-two">Show Mocktest</a>
+							<p><br /></p>
 							
 						</form>
 						

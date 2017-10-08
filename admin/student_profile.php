@@ -31,6 +31,7 @@
 					<li><a href="student_assignment.php">Assignment</a></li>
 					<li><a href="student_notice.php">Notice</a></li>
 					<li><a href="student_mocktest.php">Mocktest</a></li>
+					<li><a href="student_idacard.php">ID Card</a></li>
 					<li><a href="student_logout.php">logout</a></li>
 				</ul>
 			</div>

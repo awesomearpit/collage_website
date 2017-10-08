@@ -5,6 +5,7 @@ $aname=$_POST['aname'];
 $sname=$_POST['sname'];
 $tname=$_POST['tname'];
 $branch=$_POST['branch'];
+$download="Download";
 
 $target_dir = "../files/";
 $target_file = $target_dir . basename($_FILES["img"]["name"]);
@@ -61,7 +62,7 @@ echo $_SESSION["image_add"];
 date_default_timezone_set("Asia/Kolkata");
 $date = date('Y-m-d H:i:s');
 
-$sql="insert into assignment ( a_name,sub_name,tea_name,branch,file,date ) values ('".$aname."','".$sname."','".$tname."','".$branch."','".$tt."','".$date."')";
+$sql="insert into assignment ( a_name,sub_name,tea_name,branch,file,download,date ) values ('".$aname."','".$sname."','".$tname."','".$branch."','".$tt."','".$download."','".$date."')";
 if($conn->query($sql)=== true){
 	//echo "record insert";
 }

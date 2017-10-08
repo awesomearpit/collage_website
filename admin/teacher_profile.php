@@ -31,6 +31,7 @@
 					<li><a href="teacher_assignment.php">Assignment</a></li>
 					<li><a href="teacher_notice.php">Notice</a></li>
 					<li><a href="teacher_mocktest.php">Mocktest</a></li>
+					<li><a href="teacher_idcard.php">ID Card</a></li>
 					<li><a href="teacher_logout.php">logout</a></li>
 				</ul>
 			</div>

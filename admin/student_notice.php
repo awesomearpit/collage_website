@@ -31,6 +31,7 @@
 					<li><a href="student_assignment.php">Assignment</a></li>
 					<li><a href="student_notice.php">Notice</a></li>
 					<li><a href="student_mocktest.php">Mocktest</a></li>
+					<li><a href="student_idacard.php">ID Card</a></li>
 					<li><a href="student_logout.php">logout</a></li>
 				</ul>
 			</div>
@@ -56,20 +57,30 @@
 	<!-- container -->
 	<div class="container">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8 col-md-offset-2">
 						<br />
 						<br />
 						<br />
+						<?php 
+							include ('database.php');
+							$sql = "SELECT * FROM notice";
+							$result = $conn->query($sql);
+						?>
+							<?php
+							if ($result->num_rows > 0) {
+								while($row = $result->fetch_assoc()) {
+							?>
+							<ul style="list-style-type: disc;">
+							<li><?php echo $row['notice']; ?></td>
+							</ul>
+							<?php 
+								}
+							}
+							?>
+							</tbody>
+							</table>
 						
 						
-					</div>
-					<div class="col-md-4">
-						<div class="row">
-							<div class="col-md-6">
-								<h3 class="section-title">Notice</h3>
-				
-							</div> 
-						</div> 						
 					</div>
 				</div>
 			</div>
