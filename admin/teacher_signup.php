@@ -82,7 +82,7 @@
 							</div>
 							<div class="form-group">
 								<label>Phone No.</label>
-								<input type="text" class="form-control" placeholder="Phone No" name="pno" required>
+								<input type="tel" class="form-control" placeholder="Phone No" name="pno" required>
 							</div>
 							<div class="form-group">
 							<?php 

@@ -14,9 +14,10 @@ if ($result->num_rows > 0) {
 			 
 			 $uname=$row['email'];
 			 $pass='tea'.rand(10000,1000000);
+			 $status='success';
 		
 			 
-			$sql = "UPDATE teacher SET uname='$uname',pass='$pass' WHERE id=".$id;
+			$sql = "UPDATE teacher SET uname='$uname',pass='$pass',status='$status' WHERE id=".$id;
 			// echo "<pre>";
 			// print_r($sql);die;
 			 if($conn->query($sql)=== true){
