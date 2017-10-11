@@ -82,7 +82,7 @@
 							</div>
 							<div class="form-group">
 								<label>Phone No.</label>
-								<input type="tel" class="form-control" placeholder="Phone No" name="pno" required>
+								<input type="tel" class="form-control" placeholder="Phone No" name="pno" maxlength="10" required>
 							</div>
 							<div class="form-group">
 							<?php 
@@ -113,7 +113,7 @@
 							</div>
 							<div class="form-group">
 								<label>Select Profile Image</label>
-								<input type="file" class="form-control" value="Browse" name="img" id="filetoupload" >
+								<input type="file" class="btn btn-file" value="Browse" name="img" id="filetoupload" >
 							</div>
 
 							<button type="submit" class="btn btn-two" value="submit">Signup</button><p><br /></p>
